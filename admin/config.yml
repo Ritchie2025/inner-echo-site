@@ -1,0 +1,71 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Price", name: "price", widget: "number"}
+      - {label: "Duration", name: "duration", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+  
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Position", name: "position", widget: "string"}
+      - {label: "Testimonial", name: "testimonial", widget: "text"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+  
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
+          - {label: "About Section Title", name: "aboutTitle", widget: "string"}
+          - {label: "About Section Content", name: "aboutContent", widget: "markdown"}
+          - {label: "Services Section Title", name: "servicesTitle", widget: "string"}
+          - {label: "Services Section Subtitle", name: "servicesSubtitle", widget: "text"}
+          - {label: "Testimonials Section Title", name: "testimonialsTitle", widget: "string"}
+          - {label: "CTA Title", name: "ctaTitle", widget: "string"}
+          - {label: "CTA Button Text", name: "ctaButtonText", widget: "string"}
+      
+      - file: "content/about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Mission Statement", name: "mission", widget: "text"}
+          - {label: "Founder Bio", name: "founderBio", widget: "markdown"}
+      
+      - file: "content/faq.md"
+        label: "FAQ Page"
+        name: "faq"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Introduction", name: "introduction", widget: "text"}
+          - label: "FAQ Items"
+            name: "faqItems"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "markdown"}
