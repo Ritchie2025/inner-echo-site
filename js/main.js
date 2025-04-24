@@ -168,3 +168,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ————————————————
+// If URL ends in #signup, switch to the Sign-Up tab automatically
+// ————————————————
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash === '#signup') {
+    // these selectors must match your tab buttons or data-attributes
+    const loginTabBtn  = document.querySelector('.tab-login');
+    const signupTabBtn = document.querySelector('.tab-signup');
+    const loginPane    = document.querySelector('#login-form');
+    const signupPane   = document.querySelector('#signup-form');
+
+    // hide login / show signup
+    if (loginTabBtn)  loginTabBtn.classList.remove('active');
+    if (signupTabBtn) signupTabBtn.classList.add('active');
+    if (loginPane)    loginPane.style.display  = 'none';
+    if (signupPane)   signupPane.style.display = 'block';
+  }
+});
