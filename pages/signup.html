@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | Inner Echo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-form">
+            <h2>Create Your Account</h2>
+            <form id="signup-form">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" required>
+                <label for="password">Password *</label>
+                <input type="password" id="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/pages/login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        netlifyIdentity.on('init', user => {
+            if (!user) {
+                netlifyIdentity.on('signup', () => {
+                    netlifyIdentity.open('login');
+                });
+            }
+        });
+        netlifyIdentity.init();
+    </script>
+</body>
+</html>
